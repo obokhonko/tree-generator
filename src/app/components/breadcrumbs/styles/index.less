@@ -1,0 +1,34 @@
+.breadcrumbs {
+	display: flex;
+	flex-flow: row nowrap;
+	margin: 0;
+	padding: 0 0 0 25%;
+	border-bottom: 1px solid #2c3e50;
+	background-image: linear-gradient(to right, #2c3e50, #4ca1af);
+
+	> li {
+		display: inline-flex;
+		padding: 0 16px;
+		position: relative;
+
+		&:last-child a {
+			color: rgb(255, 148, 114);
+		}
+
+		&:not(:last-child):after {
+			content: "/";
+			position: absolute;
+			font-size: 18px;
+			top: 18px;
+			right: -4px;
+			color: #CCC;
+		}
+
+		a {
+			height: 60px;
+			line-height: 60px;
+			font-size: 18px;
+			color: white;
+		}
+	}
+}

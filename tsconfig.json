@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "ES2017",
+    "jsx": "react",
+    "module": "ESNext",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "removeComments": false,
+    "noImplicitReturns": false,
+    "noUnusedLocals": true,
+    "downlevelIteration": true,
+    "strict": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "test",
+    "dist"
+  ]
+}

@@ -1,0 +1,6 @@
+coverage/
+lib/
+renovate.json
+tsconfig.json
+webpack.config.js
+*.e2e.test.js

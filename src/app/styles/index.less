@@ -1,0 +1,24 @@
+HTML,
+BODY {
+    width: 100%;
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 100%;
+    padding-top: 5px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 5px;
+        //background-image: linear-gradient(to right, #2c3e50, #4ca1af);
+        background-image: linear-gradient(to right, #00b09b, #96c93d);
+        //background-image: linear-gradient(to right, #8360c3, #2ebf91);
+    }
+}
