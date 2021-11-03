@@ -1,43 +1,43 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {uniqueId} from '../../app.utils';
-import {generateBreadcrumbs} from './breadcrumb.functions';
+import {TBreadcrumbs, generateBreadcrumbs} from './breadcrumb.functions';
+import type {TCatalogItem} from '../directory-tree/directory-tree.functions';
 
 import './styles/index.less';
 
-interface IBreadcrumbs {
-	source: any;
-	current: any;
-	onClick(value: string): void;
+interface IBreadcrumbsProps {
+   source: TCatalogItem[] | null;
+   current: TCatalogItem | null;
+
+   onClick(value: string): void;
 }
 
-const Breadcrumbs: React.FC<IBreadcrumbs> = ({source, current, onClick}): JSX.Element => {
-	const [data, setData] = useState<any>(null);
+const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({source, current, onClick}): JSX.Element => {
+   const [data, setData] = useState<TBreadcrumbs | null>(null);
 
-	useEffect(() => {
-		if (source) {
-			const result = generateBreadcrumbs(source);
-			setData(result);
-		}
-	}, [source]);
+   useEffect(() => {
+	  if (source) {
+		 setData(generateBreadcrumbs(source));
+	  }
+   }, [source]);
 
-	const handleOnClick = useCallback((id: string) => {
-		return () => {
-			onClick(id);
-		};
-	}, [onClick]);
+   const handleOnClick = useCallback((id: string) => {
+	  return () => {
+		 onClick(id);
+	  };
+   }, [onClick]);
 
-	if (!current) {
-		return <h3>Loading...</h3>;
-	}
+   if (!current || !data) {
+	  return <h3>Loading...</h3>;
+   }
 
-	return (
-		<ul className="breadcrumbs">
-			{
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-				data[current.id].map(item => <li key={uniqueId(item)}><a href="#" onClick={handleOnClick(item)}>{item}</a></li>)
-			}
-		</ul>
-	);
+   return (
+	  <ul className="breadcrumbs">
+		 {
+			data[current.id].map(item => <li key={uniqueId(item)}><a href="#" onClick={handleOnClick(item)}>{item}</a></li>)
+		 }
+	  </ul>
+   );
 };
 
-export {Breadcrumbs};
+export {IBreadcrumbsProps, Breadcrumbs};
