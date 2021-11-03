@@ -17,8 +17,9 @@ Main functionality is build around 2 components:
 2. Open/collapse tree node feature is not complete. Current implementation meets a dead end. Different mechanism 
 should be created to track open/close state thus there has to be changes in a data preparation phase before 
 passing it to rendering
-3. Sync breadcrumbs and node tree selection with a router. 
+3. Sync breadcrumbs and node tree selection with a router.
 4. Add unit tests
+5. State manager (native or 3rd party)
 
 ### Building
 
